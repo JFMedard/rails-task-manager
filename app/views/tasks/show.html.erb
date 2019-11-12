@@ -1,3 +1,24 @@
 <div class="container">
-  <h1 class="text-center">@task.title</h1>
+  <h1 class="text-center"><%= @task.title %></h1>
+  <br>
+  <p class="text-center shadow-lg p-3 mb-5 bg-white rounded"><%= @task.details  %></p>
+
+  <% if @task.completed? %>
+      <input type="checkbox" class="text-center shadow-lg p-3 mb-5 bg-white rounded" name="completed" checked>
+      <label for="completed" class="text-center shadow-lg p-3 mb-5 bg-white rounded">Status: completed!</label>
+      <% else %>
+        <input type="checkbox" class="text-center shadow-lg p-3 mb-5 bg-white rounded" name="completed">
+        <label for="completed" class="text-center shadow-lg p-3 mb-5 bg-white rounded">Status: not completed!</label>
+      <% end %>
+
+    </div>
+
+
+  <div class="alert alert-success text-center m-2 align-middle">
+    <%= link_to "Edit task", tasks_edit_path(@task) %>
+  </div>
+
+  <div class="alert alert-success text-center m-2 align-middle">
+    <%= link_to "Back to tasks", tasks_path %>
+  </div>
 </div>
